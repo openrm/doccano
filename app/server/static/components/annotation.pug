@@ -145,11 +145,16 @@ div.columns(v-cloak="")
           span.icon
             i.fas.fa-box
 
+    div.columns(v-if="documentMetadata && documentMetadata.documentSourceUrl")
+      div.column
+        a.card(v-bind:href="documentMetadata.documentSourceUrl", target="_blank")
+          img(v-bind:src="documentMetadata.documentSourceUrl", alt="Document image")
+
     div.columns
       div.column
         block annotation-area
 
-      div.column(v-if="documentMetadata != null && documentMetadata.documentSourceUrl != null")
+      // div.column(v-if="documentMetadata != null && documentMetadata.documentSourceUrl != null")
         preview(v-bind:url="documentMetadata.documentSourceUrl")
 
     div.level.mt30
